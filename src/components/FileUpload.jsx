@@ -1,5 +1,7 @@
 import { Buffer } from "buffer";
 import pdfIcon from "../images/pdf-file-3382.png";
+import { GoogleGenAI } from "@google/genai";
+import Loader from "./Loader";
 
 function FileUpload({ setFile }) {
   async function handleFileUpload(event) {

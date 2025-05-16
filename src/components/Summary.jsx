@@ -12,7 +12,7 @@ function Summary({ file }) {
 
       try {
         const ai = new GoogleGenAI({
-          apiKey: "YOUR-API-KEY-HERE",
+          apiKey: "YOUR-GEMINI-API-KEY-HERE",
         });
 
         const contents = [
