@@ -1,7 +1,17 @@
-function FileUpload() {
-  function handleFileUpload(event) {
-    const file = event.target.files[0];
-    console.log(file);
+import { Buffer } from "buffer";
+import pdfIcon from "../images/pdf-file-3382.png";
+
+function FileUpload({ setFile }) {
+  async function handleFileUpload(event) {
+    const uploaded = await event.target.files[0].arrayBuffer();
+    const file = {
+      type: event.target.files[0].type,
+      file: Buffer.from(uploaded).toString("base64"),
+      imageUrl: event.target.files[0].type.includes("pdf")
+        ? pdfIcon
+        : URL.createObjectURL(event.target.files[0]),
+    };
+    setFile(file);
   }
 
   return (
@@ -15,3 +25,5 @@ function FileUpload() {
     </section>
   );
 }
+
+export default FileUpload;
